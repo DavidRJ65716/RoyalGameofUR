@@ -24,15 +24,13 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 		switch ( source ) {
 		case "newGameButton":
 			System.out.print("MainMenu - New Game button pressed.\n"); //sponge
+			
+			Main.gameState = GameState.PLAYER_ONE;
+			Main.changeView();
 			break;
 		
 		case "loadGameButton":
 			System.out.print("MainMenu - Load Game button pressed.\n"); //sponge
-			
-			/* Testing pause menu */
-			Main.gameState = GameState.PAUSE;
-			Main.changeView();
-			/* sponge */
 			break;
 			
 		case "quitButton":

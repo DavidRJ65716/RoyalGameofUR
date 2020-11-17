@@ -6,8 +6,6 @@
  */
 package application.control;
 
-import application.Main;
-import application.model.GameState;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -24,11 +22,6 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 		switch ( source ) {
 		case "resumeGameButton":
 			System.out.print("PauseMenu - Resume Game button pressed.\n"); //sponge
-			
-			/* Testing pause menu */
-			Main.gameState = GameState.MAIN;
-			Main.changeView();
-			/* sponge */
 			break;
 		case "saveAndQuitButton":
 			System.out.print("PauseMenu - Save and Quit button pressed.\n"); //sponge

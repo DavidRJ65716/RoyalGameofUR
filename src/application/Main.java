@@ -23,6 +23,7 @@ public class Main extends Application {
 	public static int WINDOW_WIDTH = 800;
 	
 	/* Main stage and scenes for each view */
+	private static Scene gameBoardScene;
 	private static Scene mainMenuScene;
 	private static Scene pauseMenuScene;
 	private static Stage mainStage;
@@ -37,6 +38,9 @@ public class Main extends Application {
 			
 			Parent pauseMenuView = FXMLLoader.load(getClass().getResource( "view/PauseMenu.fxml"));
 			pauseMenuScene = new Scene( pauseMenuView, WINDOW_WIDTH, WINDOW_HEIGHT );
+			
+			Parent gameBoardView = FXMLLoader.load(getClass().getResource( "view/GameBoard.fxml"));
+			gameBoardScene = new Scene( gameBoardView, WINDOW_WIDTH, WINDOW_HEIGHT );
 			
 			/* Set initial game state and grab primaryStage */
 			gameState = GameState.MAIN;
@@ -68,9 +72,10 @@ public class Main extends Application {
 			return 0;
 		case PLAYER_ONE:
 		case PLAYER_TWO:
-			/* TODO Not sure how exactly these will be implemented depending on how their
-			 * views are setup - i.e. fxml file vs dynamic code in GameBoardController
-			 */
+			Main.mainStage.hide();
+			Main.mainStage.setScene( Main.gameBoardScene );
+			Main.mainStage.show();
+			return 0;
 		default:
 			return -1;
 			
