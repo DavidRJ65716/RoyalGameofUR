@@ -1,4 +1,4 @@
-package application.Model;
+package application.model;
 
 /*
  * Stores all the information of pieces on the board
