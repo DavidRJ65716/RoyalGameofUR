@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 /**
  * MVC controller for the Pause Menu view.
  */
-public class PauseMenuController implements EventHandler<MouseEvent>{
+public class PauseMenuController implements EventHandler<MouseEvent> {
 	@Override
 	public void handle( MouseEvent event ) {
 		String source = ((Button) event.getSource()).getId();

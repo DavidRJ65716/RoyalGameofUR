@@ -1,5 +1,5 @@
 package application.model;
 
-public class newPiece {
+public class NewPiece {
 
 }

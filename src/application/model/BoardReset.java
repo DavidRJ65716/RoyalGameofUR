@@ -1,5 +1,5 @@
 package application.model;
 
-public class boardreset {
+public class BoardReset {
 
 }

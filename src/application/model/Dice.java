@@ -1,5 +1,5 @@
 package application.model;
 
-public class dice {
+public class Dice {
 
 }

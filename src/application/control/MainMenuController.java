@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 /**
  * MVC controller for the Main Menu view.
  */
-public class MainMenuController implements EventHandler<MouseEvent>{
+public class MainMenuController implements EventHandler<MouseEvent> {
 	@Override
 	public void handle( MouseEvent event ) {
 		String source = ((Button) event.getSource()).getId();
