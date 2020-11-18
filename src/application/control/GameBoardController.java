@@ -50,7 +50,7 @@ public class GameBoardController {
 	private void handleOnMouseClicked(MouseEvent event) {
 		int mouseX = ((int) event.getX());
 		int mouseY = ((int) event.getY());
-		System.out.print(mouseX + ", " + mouseY + "\n\n"); //sponge
+		System.out.print("GameBoard - coordinates (" + mouseX + ", " + mouseY + ") clicked.\n"); //sponge
 		
 		/* Check if mouse clicked anywhere on board */
 		if( BOARD_X <= mouseX && mouseX < BOARD_X + BOARD_CELL_W*8 &&
@@ -61,8 +61,9 @@ public class GameBoardController {
 				for( int y = 0; y < 3; y++) {
 					
 					/* Check which board cell was clicked */
-					if( ((100 * x + BOARD_X) <= mouseX) && (mouseX < (100 * (x+1) + BOARD_X)) &&
+					if(	((100 * x + BOARD_X) <= mouseX) && (mouseX < (100 * (x+1) + BOARD_X)) &&
 						((100 * y + BOARD_Y) <= mouseY) && (mouseY < (100 * (y+1) + BOARD_Y)) ) {
+						System.out.print("GameBoard - board cell (" + x + ", " + y + ") clicked.\n"); //sponge
 						/* At this point: user clicked on board at cell (x, y) */
 					}
 				}
@@ -76,6 +77,7 @@ public class GameBoardController {
 
 		/* Open pause menu when ESC pressed */
 		if( key.equals(KeyCode.ESCAPE)) {
+			System.out.print( "GameBoard - " + key.toString() + " pressed.\n"); //sponge
 			Main.changeView(GameState.PAUSE);
 		}
 	}

@@ -54,8 +54,9 @@ public class Main extends Application {
 	}
 	
 	/**
-	 * Changes and presents mainStage according to the value of
-	 * gameState.
+	 * Changes and presents mainStage according to newState,
+	 * and updates prevState.
+	 * @param newState Changes the view to match this state
 	 * @return 0 if successful, -1 otherwise
 	 */
 	public static int changeView( GameState newState ) {
