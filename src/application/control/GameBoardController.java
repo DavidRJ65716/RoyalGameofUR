@@ -53,21 +53,35 @@ public class GameBoardController {
 		System.out.print("GameBoard - coordinates (" + mouseX + ", " + mouseY + ") clicked.\n"); //sponge
 		
 		/* Check if mouse clicked anywhere on board */
-		if( BOARD_X <= mouseX && mouseX < BOARD_X + BOARD_CELL_W*8 &&
-			BOARD_Y <= mouseY && mouseY < BOARD_Y + BOARD_CELL_H*3) {
+		if((BOARD_X <= mouseX) && (mouseX < BOARD_X + BOARD_CELL_W * 8) 
+				&& (BOARD_Y <= mouseY) && (mouseY < BOARD_Y + BOARD_CELL_H * 3)) {
 			
 			/* Loop through board cells */
-			for( int x = 0; x < 8; x++) {
-				for( int y = 0; y < 3; y++) {
+			for( int cellX = 0; cellX < 8; cellX++) {
+				for( int cellY = 0; cellY < 3; cellY++) {
 					
 					/* Check which board cell was clicked */
-					if(	((100 * x + BOARD_X) <= mouseX) && (mouseX < (100 * (x+1) + BOARD_X)) &&
-						((100 * y + BOARD_Y) <= mouseY) && (mouseY < (100 * (y+1) + BOARD_Y)) ) {
-						System.out.print("GameBoard - board cell (" + x + ", " + y + ") clicked.\n"); //sponge
-						/* At this point: user clicked on board at cell (x, y) */
+					if(	((100 * cellX + BOARD_X) <= mouseX) && (mouseX < (100 * (cellX + 1) + BOARD_X)) 
+							&& ((100 * cellY + BOARD_Y) <= mouseY) && (mouseY < (100 * (cellY + 1) + BOARD_Y)) ) {
+							
+						/* At this point: user clicked on board at cell (cellX, cellY) */
+						System.out.print("GameBoard - board cell (" + cellX + ", " + cellY + ") clicked.\n"); //sponge
 					}
 				}
 			}
+		}
+		
+		/* Check if user clicked on top piece stack */
+		if(	BOARD_X <= mouseX && mouseX < BOARD_X + BOARD_CELL_W 
+				&& BOARD_Y-BOARD_CELL_H <= mouseY && mouseY < BOARD_Y ) {
+			System.out.print("GameBoard - Top piece stack clicked.\n"); //sponge
+		}
+		
+		/* Check if user clicked on bottom piece stack */
+		if( BOARD_X <= mouseX && mouseX < BOARD_X + BOARD_CELL_W 
+				&& BOARD_Y+BOARD_CELL_H * 3 <= mouseY && mouseY < BOARD_Y+BOARD_CELL_H * 4 ) {
+			System.out.print("GameBoard - Bottom piece stack clicked.\n"); //sponge
+			
 		}
 	}
 	
