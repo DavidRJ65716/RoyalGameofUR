@@ -70,12 +70,14 @@ public class Main extends Application {
 			Main.mainMenuScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
+			
 		case PAUSE:
 			Main.mainStage.hide();
 			Main.mainStage.setScene(Main.pauseMenuScene);
 			Main.pauseMenuScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
+			
 		case PLAYER_ONE:
 		case PLAYER_TWO:
 			Main.mainStage.hide();
@@ -83,6 +85,7 @@ public class Main extends Application {
 			Main.gameBoardScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
+			
 		default:
 			return -1;
 			

@@ -9,13 +9,18 @@ package application.control;
 import application.Main;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 /**
  * MVC controller for the Pause Menu view.
  */
 public class PauseMenuController implements EventHandler<MouseEvent> {
+	@FXML
+	Label errorLabel;
+	
 	@Override
 	public void handle( MouseEvent event ) {
 		String source = ((Button) event.getSource()).getId();
