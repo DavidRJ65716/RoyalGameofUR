@@ -18,7 +18,8 @@ import javafx.scene.Scene;
 public class Main extends Application {
 	
 	/* Game state and window size */
-	public static GameState gameState;
+	public static GameState gameState = null;
+	public static GameState prevState = null;
 	public static int WINDOW_HEIGHT = 600;
 	public static int WINDOW_WIDTH = 800;
 	
@@ -43,11 +44,10 @@ public class Main extends Application {
 			gameBoardScene = new Scene( gameBoardView, WINDOW_WIDTH, WINDOW_HEIGHT );
 			
 			/* Set initial game state and grab primaryStage */
-			gameState = GameState.MAIN;
 			mainStage = primaryStage;
 			
 			/* Change to initial view */
-			changeView();
+			changeView( GameState.MAIN );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -58,22 +58,28 @@ public class Main extends Application {
 	 * gameState.
 	 * @return 0 if successful, -1 otherwise
 	 */
-	public static int changeView() {
-		switch ( Main.gameState ) {
+	public static int changeView( GameState newState ) {
+		prevState = gameState;
+		gameState = newState;
+		
+		switch ( gameState ) {
 		case MAIN:
 			Main.mainStage.hide();
 			Main.mainStage.setScene(Main.mainMenuScene);
+			Main.mainMenuScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
 		case PAUSE:
 			Main.mainStage.hide();
 			Main.mainStage.setScene(Main.pauseMenuScene);
+			Main.pauseMenuScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
 		case PLAYER_ONE:
 		case PLAYER_TWO:
 			Main.mainStage.hide();
 			Main.mainStage.setScene( Main.gameBoardScene );
+			Main.gameBoardScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
 		default:
