@@ -8,7 +8,7 @@ package application.control;
 
 import application.Main;
 import application.model.GameState;
-import application.model.LoadGame;
+import application.model.SaveFile;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,6 +27,7 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 	public void handle( MouseEvent event ) {
 		String source = ((Button) event.getSource()).getId();
 		
+		/* Check which button was pressed */
 		switch ( source ) {
 		case "newGameButton":
 			System.out.print("MainMenu - New Game button pressed.\n"); //sponge
@@ -36,7 +37,7 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 		
 		case "loadGameButton":
 			System.out.print("MainMenu - Load Game button pressed.\n"); //sponge
-			if( LoadGame.loadGame() < 0 ) {
+			if ( SaveFile.loadGame() < 0 ) {
 				errorLabel.setText("Error loading save file.");
 			}
 			break;
