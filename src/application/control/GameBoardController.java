@@ -23,6 +23,8 @@ import javafx.scene.paint.Color;
 public class GameBoardController {
 	private GraphicsContext graphics;
 	private Image boardImage;
+	private Image diceZero;
+	private Image diceOne;
 	
 	/* Board coordinates on canvas */
 	private static int BOARD_X = 0;
@@ -39,9 +41,9 @@ public class GameBoardController {
 	@FXML
 	public void initialize() {
 		this.boardImage = new Image("UrBoard.png");
+		this.diceZero = new Image("diceZero.png");
+		this.diceOne = new Image("diceOne.png");
 		this.graphics = canvas.getGraphicsContext2D();
-		
-		canvas.getParent().setOnKeyPressed(this::handleOnKeyPressed);
 		
 		draw();
 	}
@@ -51,6 +53,7 @@ public class GameBoardController {
 		int mouseX = ((int) event.getX());
 		int mouseY = ((int) event.getY());
 		System.out.print("GameBoard - coordinates (" + mouseX + ", " + mouseY + ") clicked.\n"); //sponge
+		drawDice(0);
 		
 		/* Check if mouse clicked anywhere on board */
 		if((BOARD_X <= mouseX) && (mouseX < BOARD_X + BOARD_CELL_W * 8) 
@@ -99,11 +102,44 @@ public class GameBoardController {
 	/**
 	 * Method to draw the board view to the screen
 	 */
-	public void draw() {
-		graphics.setFill(Color.ALICEBLUE);
+	private void draw() {
+		graphics.setFill(Color.DARKCYAN);
 		graphics.fillRect(0, 0, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
 		
 		graphics.setGlobalAlpha( 1.0 );
 		graphics.drawImage(boardImage, BOARD_X, BOARD_Y);
+	}
+	
+	/**
+	 * Draws rolled dice onto the screen
+	 * @param numberUp the number of dice with a marked corner facing up
+	 */
+	private void drawDice(int numberUp) {
+		int i;
+		numberUp -= 1;
+		
+		if(Main.gameState == GameState.PLAYER_ONE) {
+			/* Draw marked dice */
+			for(i = 0; i <= numberUp; i++) {
+				graphics.drawImage(diceOne, 400+i*100, 50);
+			}
+			
+			/* Draw unmarked dice */
+			for(; i <= 3; i++) {
+				graphics.drawImage(diceZero, 400+i*100, 50);
+			}
+		}
+		
+		if(Main.gameState == GameState.PLAYER_TWO) {
+			/* Draw marked dice */
+			for(i = 0; i <= numberUp; i++) {
+				graphics.drawImage(diceOne, 400+i*100, 450);
+			}
+			
+			/* Draw unmarked dice */
+			for(; i <= 3; i++) {
+				graphics.drawImage(diceZero, 400+i*100, 450);
+			}
+		}
 	}
 }

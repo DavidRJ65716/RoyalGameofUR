@@ -32,7 +32,7 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 		case "newGameButton":
 			System.out.print("MainMenu - New Game button pressed.\n"); //sponge
 			
-			Main.changeView(GameState.PLAYER_ONE);
+			Main.changeView(GameState.PLAYER_TWO);
 			break;
 		
 		case "loadGameButton":
