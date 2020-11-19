@@ -27,7 +27,7 @@ public class SaveFile {
 		String data;
 		
 		/* Save file doesn't exist */
-		if( !saveFile.exists() ) {
+		if ( !saveFile.exists() ) {
 			return -1;
 		}
 		
@@ -37,7 +37,7 @@ public class SaveFile {
 			/* Line 1 - gameState */
 			data = scanner.nextLine().trim();
 			gameState = GameState.parseString(data);
-			if(gameState == null) {
+			if (gameState == null) {
 				return -1;
 			}
 			
@@ -58,7 +58,6 @@ public class SaveFile {
 		
 		/* Change the view after reading the entire file */
 		Main.changeView(gameState);
-		
 		return 0;
 	}
 	
@@ -68,7 +67,7 @@ public class SaveFile {
 		FileWriter fw;
 		
 		/* Check if save file already exists */
-		if(!saveFile.exists()) {
+		if (!saveFile.exists()) {
 			try {
 				
 				/* Create a save file if one doesn't exist */
@@ -90,7 +89,6 @@ public class SaveFile {
 			bw = new BufferedWriter(fw);
 			
 			bw.write(Main.prevState.toString());
-			
 			bw.close();
 			fw.close();
 			

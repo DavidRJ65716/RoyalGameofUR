@@ -32,12 +32,12 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 		case "newGameButton":
 			System.out.print("MainMenu - New Game button pressed.\n"); //sponge
 			
-			Main.changeView(GameState.PLAYER_TWO);
+			Main.changeView(GameState.PLAYER_ONE);
 			break;
 		
 		case "loadGameButton":
 			System.out.print("MainMenu - Load Game button pressed.\n"); //sponge
-			if( SaveFile.loadGame() < 0 ) {
+			if ( SaveFile.loadGame() < 0 ) {
 				errorLabel.setText("Error loading save file.");
 			}
 			break;

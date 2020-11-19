@@ -6,6 +6,18 @@
  */
 package application.model;
 
+/*
+ * TODO:
+ * Might have to add more to gamestate such as
+ * 
+ * 		PLAYER_ONE -> PLAYER_ONE_ROLLED -> PLAYER_TWO -> PLAYER_TWO_ROLLED
+ * 
+ * and an int to keep track of dice roll, so that the user can save after
+ * rolling and have that persist through a save and load. Can be worked on later
+ * as it probably won't need a huge rewrite, just some additions here and in the 
+ * save/load functions
+ */
+
 /**
  * Enumerator for maintaining a game state.
  */
