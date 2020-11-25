@@ -6,23 +6,30 @@
  */
 package application.control;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.Main;
 import application.model.GameState;
 import application.model.SaveFile;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * MVC controller for the Main Menu view.
  */
 public class MainMenuController implements EventHandler<MouseEvent> {
+	
 	@FXML
 	Label errorLabel;
-	
+
+    
 	@Override
 	public void handle( MouseEvent event ) {
 		String source = ((Button) event.getSource()).getId();
