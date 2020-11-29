@@ -56,8 +56,6 @@ public class SaveFile {
 			scanner.close();
 		}
 		
-		/* Change the view after reading the entire file */
-		Main.changeView(gameState);
 		return 0;
 	}
 	

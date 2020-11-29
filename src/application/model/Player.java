@@ -2,7 +2,8 @@ package application.model;
 
 /**
  * Hold The player information
- *
+ * resets player pieces
+ * swaps location on the board
  */
 public class Player {
 	
@@ -11,12 +12,13 @@ public class Player {
 	public int offpiecese;
 	public boolean inplay; 
 	
+	
 	public int getPlayerB(int i) {
 		
 		return playerB[i];
 	}
 	
-	/**
+	/*
 	 * Sets the player pieces on the board
 	 * 
 	 *  @ int i piece location
@@ -29,7 +31,7 @@ public class Player {
 		playerB[j] = player;
 	}
 	
-	/**
+	/*
 	 * Resets players pieces
 	 */
 	public void reset() {
