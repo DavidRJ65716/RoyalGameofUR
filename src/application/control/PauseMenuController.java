@@ -7,7 +7,7 @@
 package application.control;
 
 import application.Main;
-import application.model.SaveFile;
+import application.model.GameEngine;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -35,7 +35,7 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 			
 		case "saveAndQuitButton":
 			System.out.print("PauseMenu - Save and Quit button pressed.\n"); //sponge
-			if (SaveFile.saveGame() < 0) {
+			if (!GameEngine.save()) {
 				errorLabel.setText("Error saving game.");
 				break;
 			}
@@ -46,8 +46,9 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 			
 		case "saveButton":
 			System.out.print("PauseMenu - Save button pressed.\n"); //sponge
-			if (SaveFile.saveGame() < 0) {
+			if (!GameEngine.save()) {
 				errorLabel.setText("Error saving game.");
+				break;
 			}
 			
 			errorLabel.setText("Game successfully saved.");

@@ -1,1 +1,108 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#introPane, GridPane{
+	-fx-background-image:url("../Ur_Image.jpg");
+	-fx-background-size:100% 100%;	
+}
+
+#newGameButton{
+	-fx-border-color: goldenrod;
+	-fx-background-color: transparent;
+	-fx-border-width:2,2;
+	-fx-background-image:url("../text_new_game.png");
+	-fx-background-size:100% 100%;	
+}
+
+#newGameButton:hover{
+	-fx-border-color: darkgoldenrod;
+	-fx-border-width:3,3;
+}
+
+#newGameButton:pressed{
+	-fx-opacity:0.5;
+}
+
+#loadGameButton{
+	-fx-border-color: goldenrod;
+	-fx-background-color: transparent;
+	-fx-border-width:2,2;
+	-fx-background-image:url("../text_load_game.png");
+	-fx-background-size:100% 100%;	
+}
+
+#loadGameButton:hover{
+	-fx-border-color: darkgoldenrod;
+	-fx-border-width:3,3;
+}
+
+#loadGameButton:pressed{
+	-fx-opacity:0.5;
+}
+
+#quitButton{
+	-fx-border-color: goldenrod;
+	-fx-background-color: transparent;
+	-fx-border-width:2,2;
+	-fx-background-image:url("../text_quit.png");
+	-fx-background-size:100% 100%;	
+}
+
+#quitButton:hover{
+	-fx-border-color: darkgoldenrod;
+	-fx-border-width:3,3;
+}
+
+#quitButton:pressed{
+	-fx-opacity:0.5;
+}
+
+#saveButton{
+	-fx-border-color: goldenrod;
+	-fx-background-color: transparent;
+	-fx-border-width:2,2;
+	-fx-background-image:url("../text_save.png");
+	-fx-background-size:100% 100%;	
+}
+
+#saveButton:hover{
+	-fx-border-color: darkgoldenrod;
+	-fx-border-width:3,3;
+}
+
+#saveButton:pressed{
+	-fx-opacity:0.5;
+}
+
+#saveAndQuitButton{
+	-fx-border-color: goldenrod;
+	-fx-background-color: transparent;
+	-fx-border-width:2,2;
+	-fx-background-image:url("../text_save_and_quit.png");
+	-fx-background-size:100% 100%;	
+}
+
+#saveAndQuitButton:hover{
+	-fx-border-color: darkgoldenrod;
+	-fx-border-width:3,3;
+}
+
+#saveAndQuitButton:pressed{
+	-fx-opacity:0.5;
+}
+
+#resumeGameButton{
+	-fx-border-color: goldenrod;
+	-fx-background-color: transparent;
+	-fx-border-width:2,2;
+	-fx-background-image:url("../text_resume.png");
+	-fx-background-size:100% 100%;	
+}
+
+#resumeGameButton:hover{
+	-fx-border-color: darkgoldenrod;
+	-fx-border-width:3,3;
+}
+
+#resumeGameButton:pressed{
+	-fx-opacity:0.5;
+}

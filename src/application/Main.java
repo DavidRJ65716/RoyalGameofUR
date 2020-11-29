@@ -36,9 +36,11 @@ public class Main extends Application {
 			/* Load each view into memory */
 			Parent mainMenuView = FXMLLoader.load(getClass().getResource( "view/MainMenu.fxml"));
 			mainMenuScene = new Scene( mainMenuView, WINDOW_WIDTH, WINDOW_HEIGHT );
+			mainMenuScene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			
 			Parent pauseMenuView = FXMLLoader.load(getClass().getResource( "view/PauseMenu.fxml"));
 			pauseMenuScene = new Scene( pauseMenuView, WINDOW_WIDTH, WINDOW_HEIGHT );
+			pauseMenuScene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			
 			Parent gameBoardView = FXMLLoader.load(getClass().getResource( "view/GameBoard.fxml"));
 			gameBoardScene = new Scene( gameBoardView, WINDOW_WIDTH, WINDOW_HEIGHT );
