@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 import application.Main;
 import application.model.BoardCell;
-import application.model.GameEngine;
 import application.model.GameState;
+import application.model.GameEngine;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.geometry.VPos; //sponge
@@ -89,12 +89,14 @@ public class GameBoardController {
 		for (BoardCell cell : board) {
 			if (cell.contains(mouse)) {
 				System.out.print("GameBoard - board cell (" + cell.getCellX() + ", " + cell.getCellY() + ") clicked.\n"); //sponge
+				GameEngine.move(cell.getCellX(), cell.getCellY());
 			}
 		}
 		
 		/* check player one roll */
 		if (playerOneRoll.contains(mouse)) {
 			System.out.print("GameBoard - Player One roll button clicked.\n"); //sponge
+			GameEngine.RollDice();
 		}
 		
 		/* check player two roll */
@@ -105,14 +107,16 @@ public class GameBoardController {
 		/* check player one stack*/
 		if (playerOneStack.contains(mouse)) {
 			System.out.print("GameBoard - Player One piece stack clicked.\n"); //sponge
+			GameEngine.NewPiece(1);
 		}
 		
 		/* check player two stack */
 		if (playerTwoStack.contains(mouse)) {
 			System.out.print("GameBoard - Player Two piece stack clicked.\n"); //sponge
+			GameEngine.NewPiece(2);
 		}
 		
-		update();
+		
 	}
 	
 	@FXML
@@ -126,11 +130,7 @@ public class GameBoardController {
 		}
 	}
 	
-	private void update() {
-		graphics.clearRect(0,  0, canvas.getWidth(), canvas.getHeight());
-		draw();
-		drawPieces();
-	}
+	
 	
 	/**
 	 * Method to draw the board view to the screen
@@ -188,49 +188,6 @@ public class GameBoardController {
 			/* Draw unmarked dice */
 			for (; i <= 3; i++) {
 				graphics.drawImage(diceZero, 400+i*100, 450);
-			}
-		}
-	}
-	
-	private void drawPieces() {
-		for (BoardCell cell : board) {
-			int cellY = cell.getCellY();
-			int cellX = cell.getCellX();
-			int loc;
-			
-			/* Middle row */
-			if (cellY == 1) {
-				loc = cellX + 4;
-			} 
-			
-			/* First safe zone */
-			else if (cellX < 4) {
-				loc = 3 - cellX;
-			} 
-			
-			/* Second safe zone*/
-			else if (cellX > 5){
-				loc = 19 - cellX;
-			}
-			
-			/* End square */
-			else if (cellX == 5) {
-				continue; //TODO
-			}
-			
-			/* Pile */
-			else {
-				continue; //TODO
-			}
-			
-			if (cellY <= 1 && GameEngine.player1.getPlayerB(loc) > 0) {
-				graphics.setFill(Color.GRAY);
-				graphics.fillOval(cell.getX()+25, cell.getY()+25, 50, 50);
-			}
-			
-			if (cellY >= 1 && GameEngine.player2.getPlayerB(loc) > 0) {
-				graphics.setFill(Color.BLACK);
-				graphics.fillOval(cell.getX()+25, cell.getY()+25, 50, 50);
 			}
 		}
 	}

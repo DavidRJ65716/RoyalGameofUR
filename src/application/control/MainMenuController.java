@@ -39,7 +39,7 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 		
 		case "loadGameButton":
 			System.out.print("MainMenu - Load Game button pressed.\n"); //sponge
-			if ( !GameEngine.load() ) {
+			if ( !GameEngine.Load() ) {
 				errorLabel.setText("Error loading save file.");
 			}
 			Main.changeView(GameState.PLAYER_ONE);

@@ -35,7 +35,7 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 			
 		case "saveAndQuitButton":
 			System.out.print("PauseMenu - Save and Quit button pressed.\n"); //sponge
-			if (!GameEngine.save()) {
+			if (!GameEngine.Save()) {
 				errorLabel.setText("Error saving game.");
 				break;
 			}
@@ -46,7 +46,7 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 			
 		case "saveButton":
 			System.out.print("PauseMenu - Save button pressed.\n"); //sponge
-			if (!GameEngine.save()) {
+			if (!GameEngine.Save()) {
 				errorLabel.setText("Error saving game.");
 				break;
 			}
