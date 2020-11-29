@@ -1,7 +1,5 @@
 package application.model;
 
-package application.model;
-
 /**
  * Moves the pieces for player1
  */
@@ -17,10 +15,10 @@ public class PlayerOneMoves {
 	 * @int dice@
 	 * Board board
 	 */
-	public static void MovePiece(Player player1, Player player2, int x, int y, int dice, Board board) {
+	public static void MovePiece(Player player1, Player player2, int x, int y, Dice dice, Board board) {
 		
 		int loc = cellConverter(x, y);
-		int newLoc = loc + dice;
+		int newLoc = loc + dice.total;
 		
 		
 		if ((player2.getPlayerB(newLoc) == 0) && (board.getBoard(newLoc) == 0)
@@ -38,15 +36,17 @@ public class PlayerOneMoves {
 			
 			player1.setPlayerB(loc, newLoc, 1);
 			player2.setPlayerB(newLoc, newLoc, 0);
+			player2.pieces += 1;
 			player1.inplay = false;
 			player2.inplay = true;
 		} else if ((player2.getPlayerB(newLoc) == 2) && (board.getBoard(newLoc) == 0)
 			&& (player1.getPlayerB(newLoc) == 0) && (player1.getPlayerB(loc) == 1)) {// second player second event
-		
+			
 			player1.setPlayerB(loc, newLoc, 1);
 			player2.setPlayerB(newLoc, newLoc, 0);
 			player1.inplay = false;
 			player2.inplay = true;
+			dice.reset();
 		} 
 		
 	}
@@ -61,17 +61,20 @@ public class PlayerOneMoves {
 	 * @int dice@
 	 * Board board
 	 */
-	public static void NewPiece(Player player1, Player player2, int dice, Board board) {
+	public static void NewPiece(Player player1, Player player2, Dice dices, Board board) {
 		
-		int Loc = dice - 1;
+		int Loc = dices.total - 1;
 		System.out.println(Loc);		
 		
-		if ((board.getBoard(Loc) == 0) && (player1.getPlayerB(Loc) == 0)) {// Checks for piece no event
+		if ((board.getBoard(Loc) == 0) && (player1.getPlayerB(Loc) == 0) && (player1.pieces > 0)) {// Checks for piece no event
 			player1.setPlayerB(Loc, Loc, 1);
 			player1.inplay = false;
 			player2.inplay = true;
-		} else if ((board.getBoard(Loc) == 1) && (player1.getPlayerB(Loc) == 0)) { // Checks for piece first event
+			player1.pieces -= 1;
+			dices.reset();
+		} else if ((board.getBoard(Loc) == 1) && (player1.getPlayerB(Loc) == 0) && (player1.pieces > 0)) { // Checks for piece first event
 			player1.setPlayerB(Loc, Loc, 1);
+			dices.reset();
 		}
 	}
 	

@@ -24,20 +24,21 @@ public class GameEngine {
 		player1.inplay = true;
 		player2.reset();
 		player2.inplay = false;
+		dices.reset();
 		
-		print();
+		print();//remove
 	}
 	
 	/*Moves pieces with given coordinates*/
 	public static void move(int x, int y) {
 				
-		if (player1.inplay) {
-			PlayerOneMoves.MovePiece(player1, player2, x, y, 4, board);
-		} else if (player2.inplay) {
-			PlayerTwoMoves.MovePiece(player1, player2, x, y, 1, board);
+		if (player1.inplay && dices.flag) {
+			PlayerOneMoves.MovePiece(player1, player2, x, y, dices, board);
+		} else if (player2.inplay && dices.flag) {
+			PlayerTwoMoves.MovePiece(player1, player2, x, y, dices, board);
 		}
 		
-		print();
+		print();//remove
 	}
 	
 	/*Loads a saved game*/
@@ -60,21 +61,25 @@ public class GameEngine {
 	/*Rolls the dice*/
 	public static void RollDice() {
 		
+		if (!dices.flag) {
+			dices.rollDice();
+			dices.flag = true;
+		}
 		
-		
+		print();//remove
 	}
 	
 	/*Adds a new piece on to the board*/
 	public static void NewPiece(int player) {
 		
-		if (player1.inplay || player == 1) {
-			PlayerOneMoves.NewPiece(player1, player2, 4, board);
+		if (player1.inplay && player == 1  && dices.flag) {
+			PlayerOneMoves.NewPiece(player1, player2, dices, board);
 		}
-		if (player2.inplay || player == 2) {
-			PlayerTwoMoves.NewPiece(player1, player2, 2, board);
+		if (player2.inplay && player == 2 && dices.flag) {
+			PlayerTwoMoves.NewPiece(player1, player2, dices, board);
 		}
 		
-		print();
+		print();//remove
 	}
 	
 	//To be removed 
@@ -97,5 +102,7 @@ public class GameEngine {
 		}
 		
 		System.out.println(player2.inplay + "," + player2.pieces);
+		
+		System.out.print(dices.total);
 	}
 }

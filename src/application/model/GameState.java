@@ -1,9 +1,3 @@
-/*
- * application/model/GameState.java
- * 
- * Group 5
- * Royal Game of Ur
- */
 package application.model;
 
 /*
