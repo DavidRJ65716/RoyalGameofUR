@@ -7,14 +7,14 @@ package application.model;
  */
 public class GameEngine {
 	
-	static Player player1;
-	static Player player2;
+	public static Player player1;
+	public static Player player2;
 	
 	
 	public static void initPlayers() {
 		
-		Player player1 = new Player();
-		Player player2  = new Player();
+		player1 = new Player();
+		player2  = new Player();
 		
 		player1.reset();
 		player1.inplay = true;

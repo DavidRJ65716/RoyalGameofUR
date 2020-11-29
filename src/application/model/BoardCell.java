@@ -22,6 +22,14 @@ public class BoardCell {
 		return this.cellY;
 	}
 	
+	public double getX() {
+		return rectangle.getX();
+	}
+	
+	public double getY() {
+		return rectangle.getY();
+	}
+	
 	public boolean contains(Point2D point2D) {
 		return rectangle.contains( point2D);
 	}
