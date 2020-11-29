@@ -17,3 +17,9 @@ public class Dice {
     return sum;
   }
 }
+/*To call this function in another class:
+  Dice obj=new Dice();
+  int arrDice[]=obj.DiceArray();    //gives you array of dice from class Dice()
+  int sum=0;
+  sum=obj.total(arrDice);         //returns sum of array of dice
+  */
