@@ -42,7 +42,7 @@ public class PlayerTwoMoves {
 				player2.inplay = false;
 				player1.inplay = true;
 				dices.reset();
-			} else if ((newLoc < 14) && (player2.getPlayerB(newLoc) != 2) && (board.getBoard(newLoc) == 2)
+			} else if ((newLoc < 14) && (player1.getPlayerB(newLoc) != 1) && (board.getBoard(newLoc) == 2)
 					&& (player2.getPlayerB(newLoc) == 0) && (player2.getPlayerB(loc) == 2)
 						) {// no second player second event
 				
