@@ -7,12 +7,7 @@ public class PlayerTwoMoves {
 	/*
 	 * Moves pieces already on the board
 	 * 
-	 * @Player player1
-	 * @Player player2
-	 * @int x
-	 * @int y
-	 * @int dice@
-	 * Board board
+	 * @perm Player player1 Player player2 int x int y int dice Board board
 	 */
 	public static void MovePiece(Player player1, Player player2, int x, int y, Dice dices, Board board) {
 		
@@ -75,12 +70,7 @@ public class PlayerTwoMoves {
 	/*
 	 * Add pieces to the board 
 	 * 
-	 * @Player player1
-	 * @Player player2
-	 * @int x
-	 * @int y
-	 * @int dice@
-	 * Board board
+	 * @perm Player player1 Player player2 int x int y int dice Board board
 	 */
 	public static void NewPiece(Player player1, Player player2, Dice dices, Board board) {
 		
@@ -101,8 +91,7 @@ public class PlayerTwoMoves {
 	/*
 	 * Converts coordinates to work with an array
 	 * 
-	 * @int x
-	 * @int y
+	 * @perm int x int y
 	 */
 	public static int cellConverter(int x, int y) {
 		

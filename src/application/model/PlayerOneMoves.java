@@ -8,12 +8,7 @@ public class PlayerOneMoves {
 	/*
 	 * Moves pieces already on the board
 	 * 
-	 * @Player player1
-	 * @Player player2
-	 * @int x
-	 * @int y
-	 * @int dice@
-	 * Board board
+	 * @perm Player player1 Player player2 int x int y int dice Board board
 	 */
 	public static void MovePiece(Player player1, Player player2, int x, int y, Dice dices, Board board) {
 		
@@ -75,17 +70,11 @@ public class PlayerOneMoves {
 	/*
 	 * Adds new pieces to the board
 	 * 
-	 * @Player player1
-	 * @Player player2
-	 * @int x
-	 * @int y
-	 * @int dice@
-	 * Board board
+	 * @perm Player player1 Player player2 int x int y int dice Board board
 	 */
 	public static void NewPiece(Player player1, Player player2, Dice dices, Board board) {
 		
-		int Loc = dices.total - 1;
-		System.out.println(Loc);		
+		int Loc = dices.total - 1;	
 		
 		if ((board.getBoard(Loc) == 0) && (player1.getPlayerB(Loc) == 0) && (player1.pieces > 0)) {// Checks for piece no event
 			player1.setPlayerB(Loc, Loc, 1);
@@ -104,8 +93,7 @@ public class PlayerOneMoves {
 	/*
 	 * Converts coordinates to work with an array
 	 * 
-	 * @int x
-	 * @int y
+	 * @perm int x int y
 	 */
 	public static int cellConverter(int x, int y) {
 		
