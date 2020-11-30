@@ -51,7 +51,7 @@ public class PlayerOneMoves {
 				
 				player1.setPlayerB(loc, newLoc, 1);
 			} else if ((newLoc < 14) && (board.getBoard(newLoc) == 3) && (player1.getPlayerB(newLoc) == 0)
-					&& (player1.getPlayerB(loc) != 1)) {// no second player third event
+					&& (player1.getPlayerB(loc) == 1)) {// no second player third event
 				
 				player1.setPlayerB(loc, newLoc, 1);
 				dices.reset();
