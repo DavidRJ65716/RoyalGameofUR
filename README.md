@@ -30,3 +30,5 @@ Additionally, add the resources folder to the build path.<br />
 <br />
 
 ### Known bugs
+Save file function doesn't propely save to text file. Ran out of time to fix it.
+Load file Function doesn't load from savefile. Ran out of time to fix it.
