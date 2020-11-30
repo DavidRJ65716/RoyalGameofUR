@@ -8,6 +8,7 @@ package application;
 	
 import java.io.IOException;
 
+import application.control.GameOverController;
 import application.model.GameState;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +28,11 @@ public class Main extends Application {
 	private static Scene gameBoardScene;
 	private static Scene mainMenuScene;
 	private static Scene pauseMenuScene;
+	private static Scene gameOverScene;
 	private static Stage mainStage;
+	
+	/* Reference to GameOverController */
+	private static GameOverController gameOverController;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -41,6 +46,11 @@ public class Main extends Application {
 			Parent pauseMenuView = FXMLLoader.load(getClass().getResource( "view/PauseMenu.fxml"));
 			pauseMenuScene = new Scene( pauseMenuView, WINDOW_WIDTH, WINDOW_HEIGHT );
 			pauseMenuScene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			
+			FXMLLoader gameOverLoader = new FXMLLoader(getClass().getResource( "view/GameOver.fxml"));
+			Parent gameOverView = gameOverLoader.load();
+			gameOverScene = new Scene( gameOverView, WINDOW_WIDTH, WINDOW_HEIGHT );
+			gameOverController = gameOverLoader.getController();
 			
 			Parent gameBoardView = FXMLLoader.load(getClass().getResource( "view/GameBoard.fxml"));
 			gameBoardScene = new Scene( gameBoardView, WINDOW_WIDTH, WINDOW_HEIGHT );
@@ -83,8 +93,18 @@ public class Main extends Application {
 		case PLAYER_ONE:
 		case PLAYER_TWO:
 			Main.mainStage.hide();
-			Main.mainStage.setScene( Main.gameBoardScene );
+			Main.mainStage.setScene(Main.gameBoardScene);
 			Main.gameBoardScene.getRoot().requestFocus();
+			Main.mainStage.show();
+			return 0;
+			
+		case PLAYER_ONE_WIN:
+		case PLAYER_TWO_WIN:
+			gameOverController.init(gameState);
+			
+			Main.mainStage.hide();
+			Main.mainStage.setScene(Main.gameOverScene);
+			Main.gameOverScene.getRoot().requestFocus();
 			Main.mainStage.show();
 			return 0;
 			
