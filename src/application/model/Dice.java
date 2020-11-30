@@ -33,4 +33,12 @@ public class Dice {
     		DiceArray[i] = 0;
        	}
     }
+    
+    public boolean isRolled() {
+    	return flag;
+    }
+    
+    public int getTotal() {
+    	return total;
+    }
 }
