@@ -116,7 +116,7 @@ public class GameBoardController {
 			GameEngine.NewPiece(2);
 		}
 		
-		
+		update();
 	}
 	
 	@FXML
@@ -128,6 +128,12 @@ public class GameBoardController {
 			System.out.print( "GameBoard - " + key.toString() + " pressed.\n"); //sponge
 			Main.changeView(GameState.PAUSE);
 		}
+	}
+	
+	private void update() {
+		graphics.clearRect(0,  0, canvas.getWidth(), canvas.getHeight());
+		draw();
+		drawPieces();
 	}
 	
 	
@@ -188,6 +194,49 @@ public class GameBoardController {
 			/* Draw unmarked dice */
 			for (; i <= 3; i++) {
 				graphics.drawImage(diceZero, 400+i*100, 450);
+			}
+		}
+	}
+	
+	private void drawPieces() {
+		for (BoardCell cell : board) {
+			int cellY = cell.getCellY();
+			int cellX = cell.getCellX();
+			int loc;
+
+			/* Middle row */
+			if (cellY == 1) {
+				loc = cellX + 4;
+			} 
+
+			/* First safe zone */
+			else if (cellX < 4) {
+				loc = 3 - cellX;
+			} 
+
+			/* Second safe zone*/
+			else if (cellX > 5){
+				loc = 19 - cellX;
+			}
+
+			/* End square */
+			else if (cellX == 5) {
+				continue; //TODO
+			}
+
+			/* Pile */
+			else {
+				continue; //TODO
+			}
+
+			if (cellY <= 1 && GameEngine.player1.getPlayerB(loc) > 0) {
+				graphics.setFill(Color.GRAY);
+				graphics.fillOval(cell.getX()+25, cell.getY()+25, 50, 50);
+			}
+
+			if (cellY >= 1 && GameEngine.player2.getPlayerB(loc) > 0) {
+				graphics.setFill(Color.BLACK);
+				graphics.fillOval(cell.getX()+25, cell.getY()+25, 50, 50);
 			}
 		}
 	}
