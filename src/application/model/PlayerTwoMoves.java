@@ -32,7 +32,7 @@ public class PlayerTwoMoves {
 			
 				player2.setPlayerB(loc, newLoc, 2);
 				dices.reset();
-			} else if ((newLoc < 14) && (player1.getPlayerB(newLoc) == 1) && (board.getBoard(newLoc) != 2)
+			} else if ((newLoc < 12) && (newLoc > 3) && (player1.getPlayerB(newLoc) == 1) && (board.getBoard(newLoc) != 2)
 					&& (player2.getPlayerB(newLoc) == 0) && (player2.getPlayerB(loc) == 2)
 						) {// first player covers for second event
 			
@@ -43,13 +43,13 @@ public class PlayerTwoMoves {
 				player1.inplay = true;
 				dices.reset();
 			} else if ((newLoc < 14) && (player2.getPlayerB(newLoc) != 2) && (board.getBoard(newLoc) == 2)
-					&& (player1.getPlayerB(newLoc) == 0) && (player1.getPlayerB(loc) == 1)
+					&& (player2.getPlayerB(newLoc) == 0) && (player2.getPlayerB(loc) == 2)
 						) {// no second player second event
 				
 				player2.setPlayerB(loc, newLoc, 2);
 				dices.reset();
-			} else if ((newLoc < 14) && (board.getBoard(newLoc) == 3) && (player1.getPlayerB(newLoc) == 0) 
-					&& (player1.getPlayerB(loc) == 1)) {// no second player third event
+			} else if ((newLoc < 14) && (board.getBoard(newLoc) == 3) && (player2.getPlayerB(newLoc) == 0) 
+					&& (player2.getPlayerB(loc) == 2)) {// no second player third event
 				
 				player2.setPlayerB(loc, newLoc, 2);
 				dices.reset();

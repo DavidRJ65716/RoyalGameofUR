@@ -35,7 +35,7 @@ public class PlayerOneMoves {
 			
 				player1.setPlayerB(loc, newLoc, 1);
 				dices.reset();
-			} else if ((newLoc < 14) && (player2.getPlayerB(newLoc) == 2) && (board.getBoard(newLoc) != 2)
+			} else if ((newLoc < 12) && (newLoc > 3) && (player2.getPlayerB(newLoc) == 2) && (board.getBoard(newLoc) != 2)
 					&& (player1.getPlayerB(newLoc) == 0) && (player1.getPlayerB(loc) == 1)
 						) {// Second player covers for second event
 				
