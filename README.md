@@ -25,6 +25,8 @@ This project was written in the Eclipse IDE. After cloning the repository, set t
 Additionally, add the resources folder to the build path.<br />
 >Right click "resources" folder -> Build Path -> Use as Source Folder
 <br />
+
+### [UML Diagram](RoyalGameofUr.pdf)
 <br />
 
 ### Known bugs
