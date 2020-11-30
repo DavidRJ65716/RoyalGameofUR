@@ -34,6 +34,7 @@ public class GameEngine {
 				
 		if (player1.inplay && dices.flag) {
 			PlayerOneMoves.MovePiece(player1, player2, x, y, dices, board);
+
 		} else if (player2.inplay && dices.flag) {
 			PlayerTwoMoves.MovePiece(player1, player2, x, y, dices, board);
 		}
@@ -64,6 +65,19 @@ public class GameEngine {
 		if (!dices.flag) {
 			dices.rollDice();
 			dices.flag = true;
+		}
+		
+		if (dices.total == 0) {//checks for if dices total is 0
+			
+			if (player1.inplay) {
+				player1.inplay = false;
+				player2.inplay = true;
+			} else {
+				player1.inplay = true;
+				player2.inplay = false;
+			}
+			
+			dices.reset();
 		}
 		
 		print();//remove

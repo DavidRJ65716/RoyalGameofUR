@@ -102,6 +102,7 @@ public class GameBoardController {
 		/* check player two roll */
 		if (playerTwoRoll.contains(mouse)) {
 			System.out.print("GameBoard - Player Two roll button clicked.\n"); //sponge
+			GameEngine.RollDice();
 		}
 		
 		/* check player one stack*/
