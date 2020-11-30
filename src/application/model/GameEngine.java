@@ -25,8 +25,6 @@ public class GameEngine {
 		player2.reset();
 		player2.inplay = false;
 		dices.reset();
-		
-		print();//remove
 	}
 	
 	/*Moves pieces with given coordinates*/
@@ -38,22 +36,23 @@ public class GameEngine {
 		} else if (player2.inplay && dices.flag) {
 			PlayerTwoMoves.MovePiece(player1, player2, x, y, dices, board);
 		}
-		
-		print();//remove
 	}
 	
-	/*Loads a saved game*/
+	/*Loads a saved game 
+	 * 
+	 *Does not work 
+	 */
 	public static boolean Load() {
 		
-		board = new Board();
-		dices = new Dice();
-		player1 = new Player();
-		player2  = new Player();
+		initPlayers();
 		
 		return true;
 	}
 	
-	/*Saves current Game*/
+	/*Saves current Game
+	 *
+	 * Does not work
+	 */
 	public static boolean Save() {
 		
 		return true;
@@ -79,8 +78,6 @@ public class GameEngine {
 			
 			dices.reset();
 		}
-		
-		print();//remove
 	}
 	
 	/*Adds a new piece on to the board*/
@@ -92,31 +89,5 @@ public class GameEngine {
 		if (player2.inplay && player == 2 && dices.flag) {
 			PlayerTwoMoves.NewPiece(player1, player2, dices, board);
 		}
-		
-		print();//remove
-	}
-	
-	//To be removed 
-	public static void print() {
-		
-		for (int i = 0; i < 14; i++) {
-			System.out.print(player1.getPlayerB(i) + ",");
-		}
-		
-		System.out.println(player1.inplay + "," + player1.pieces);
-		
-		for (int i = 0; i < 14; i++) {
-			System.out.print(board.getBoard(i) + ",");
-		}
-		
-		System.out.println("");
-		
-		for (int i = 0; i < 14; i++) {
-			System.out.print(player2.getPlayerB(i) + ",");
-		}
-		
-		System.out.println(player2.inplay + "," + player2.pieces);
-		
-		System.out.print(dices.total);
 	}
 }

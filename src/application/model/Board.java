@@ -10,7 +10,8 @@ public class Board {
 	/*
 	 * Gets event from board
 	 * 
-	 * @int i
+	 * @perm int i
+	 * @returns board array
 	 */
 	public int getBoard(int i) {
 		

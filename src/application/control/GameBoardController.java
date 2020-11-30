@@ -92,32 +92,27 @@ public class GameBoardController {
 		/* loop through all cells to see if one was clicked */
 		for (BoardCell cell : board) {
 			if (cell.contains(mouse)) {
-				System.out.print("GameBoard - board cell (" + cell.getCellX() + ", " + cell.getCellY() + ") clicked.\n"); //sponge
 				GameEngine.move(cell.getCellX(), cell.getCellY());
 			}
 		}
 		
 		/* check player one roll */
 		if (playerOneRoll.contains(mouse)) {
-			System.out.print("GameBoard - Player One roll button clicked.\n"); //sponge
 			GameEngine.RollDice();
 		}
 		
 		/* check player two roll */
 		if (playerTwoRoll.contains(mouse)) {
-			System.out.print("GameBoard - Player Two roll button clicked.\n"); //sponge
 			GameEngine.RollDice();
 		}
 		
 		/* check player one stack*/
 		if (playerOneStack.contains(mouse)) {
-			System.out.print("GameBoard - Player One piece stack clicked.\n"); //sponge
 			GameEngine.NewPiece(1);
 		}
 		
 		/* check player two stack */
 		if (playerTwoStack.contains(mouse)) {
-			System.out.print("GameBoard - Player Two piece stack clicked.\n"); //sponge
 			GameEngine.NewPiece(2);
 		}
 		
@@ -130,7 +125,7 @@ public class GameBoardController {
 		
 		/* Open pause menu when ESC pressed */
 		if (key.equals(KeyCode.ESCAPE)) {
-			System.out.print( "GameBoard - " + key.toString() + " pressed.\n"); //sponge
+
 			Main.changeView(GameState.PAUSE);
 		}
 	}

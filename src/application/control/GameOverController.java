@@ -19,12 +19,10 @@ public class GameOverController implements EventHandler<MouseEvent> {
 		
 		switch ( source ) {
 		case "mainMenuButton":
-			System.out.print("GameOverMenu - Main Menu button pressed.\n"); //sponge
 			Main.changeView(GameState.MAIN);
 			break;
 			
 		case "quitButton":
-			System.out.print("GameOverMenu - Quit button pressed.\n"); //sponge
 			Platform.exit();
 			break;
 		}

@@ -13,6 +13,8 @@ import application.Main;
 /**
  * MVC model component for handling saving and loading the game state
  * to a text file
+ * 
+ * Doesn't work developed before we had a main game engine
  */
 public class SaveFile {
 	

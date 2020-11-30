@@ -29,12 +29,10 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 		/* Check which button was pressed */
 		switch ( source ) {
 		case "resumeGameButton":
-			System.out.print("PauseMenu - Resume Game button pressed.\n"); //sponge
 			Main.changeView(Main.prevState);
 			break;
 			
 		case "saveAndQuitButton":
-			System.out.print("PauseMenu - Save and Quit button pressed.\n"); //sponge
 			if (!GameEngine.Save()) {
 				errorLabel.setText("Error saving game.");
 				break;
@@ -45,7 +43,6 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 			break;
 			
 		case "saveButton":
-			System.out.print("PauseMenu - Save button pressed.\n"); //sponge
 			if (!GameEngine.Save()) {
 				errorLabel.setText("Error saving game.");
 				break;
@@ -55,7 +52,6 @@ public class PauseMenuController implements EventHandler<MouseEvent> {
 			break;
 			
 		case "quitButton":
-			System.out.print("PauseMenu - Quit button pressed.\n"); //sponge
 			Platform.exit();
 			break;
 			

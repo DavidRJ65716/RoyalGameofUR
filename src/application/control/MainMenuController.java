@@ -32,13 +32,11 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 		/* Check which button was pressed */
 		switch ( source ) {
 		case "newGameButton":
-			System.out.print("MainMenu - New Game button pressed.\n"); //sponge
 			GameEngine.initPlayers();
 			Main.changeView(GameState.PLAYER_ONE);
 			break;
 		
 		case "loadGameButton":
-			System.out.print("MainMenu - Load Game button pressed.\n"); //sponge
 			if ( !GameEngine.Load() ) {
 				errorLabel.setText("Error loading save file.");
 			}
@@ -46,7 +44,6 @@ public class MainMenuController implements EventHandler<MouseEvent> {
 			break;
 			
 		case "quitButton":
-			System.out.print("MainMenu - Quit button pressed.\n"); //sponge
 			Platform.exit();
 			break;
 			
