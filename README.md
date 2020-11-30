@@ -1,4 +1,9 @@
 # **RoyalGameofUR**
+### Team Solitaire ( Group 5 )
+David	Jackson<br />
+Logan	Poole<br />
+Edgar	Carmona<br />
+Ario	Rahnama Moghaddam<br />
 
 ### How to play the game
 Two players start with 7 pieces. Players take turns rolling 4 dice, and move a piece 1 cell for each marked die. The goal is to move all 7 pieces through the entire board. You can't have more than one piece on a cell. If you move a piece onto a cell occupied by the other player, their piece is moved off the board.
