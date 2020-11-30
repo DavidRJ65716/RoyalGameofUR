@@ -8,6 +8,7 @@ package application;
 	
 import java.io.IOException;
 
+import application.control.GameBoardController;
 import application.control.GameOverController;
 import application.model.GameState;
 import javafx.application.Application;
@@ -31,8 +32,9 @@ public class Main extends Application {
 	private static Scene gameOverScene;
 	private static Stage mainStage;
 	
-	/* Reference to GameOverController */
+	/* Controller references */
 	private static GameOverController gameOverController;
+	private static GameBoardController gameBoardController;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -49,11 +51,13 @@ public class Main extends Application {
 			
 			FXMLLoader gameOverLoader = new FXMLLoader(getClass().getResource( "view/GameOver.fxml"));
 			Parent gameOverView = gameOverLoader.load();
-			gameOverScene = new Scene( gameOverView, WINDOW_WIDTH, WINDOW_HEIGHT );
+			gameOverScene = new Scene(gameOverView, WINDOW_WIDTH, WINDOW_HEIGHT);
 			gameOverController = gameOverLoader.getController();
 			
-			Parent gameBoardView = FXMLLoader.load(getClass().getResource( "view/GameBoard.fxml"));
-			gameBoardScene = new Scene( gameBoardView, WINDOW_WIDTH, WINDOW_HEIGHT );
+			FXMLLoader gameBoardLoader = new FXMLLoader(getClass().getResource( "view/GameBoard.fxml"));
+			Parent gameBoardView = gameBoardLoader.load();
+			gameBoardScene = new Scene(gameBoardView, WINDOW_WIDTH, WINDOW_HEIGHT);
+			gameBoardController = gameBoardLoader.getController();
 			
 			/* Set initial game state and grab primaryStage */
 			mainStage = primaryStage;
@@ -92,6 +96,8 @@ public class Main extends Application {
 			
 		case PLAYER_ONE:
 		case PLAYER_TWO:
+			gameBoardController.update();
+			
 			Main.mainStage.hide();
 			Main.mainStage.setScene(Main.gameBoardScene);
 			Main.gameBoardScene.getRoot().requestFocus();

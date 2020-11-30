@@ -17,6 +17,7 @@ import javafx.geometry.Point2D;
 import javafx.geometry.VPos; //sponge
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -51,6 +52,9 @@ public class GameBoardController {
 	
 	@FXML
 	private Canvas canvas;
+	
+	@FXML
+	private Label turnLabel;
 
 	/**
 	 * Initialize board assets and draw initial state
@@ -131,10 +135,18 @@ public class GameBoardController {
 		}
 	}
 	
-	private void update() {
+	public void update() {
 		graphics.clearRect(0,  0, canvas.getWidth(), canvas.getHeight());
 		draw();
 		drawPieces();
+		
+		if (Main.gameState == GameState.PLAYER_ONE) {
+			turnLabel.setText("White's Turn");
+		}
+		
+		if (Main.gameState == GameState.PLAYER_TWO) {
+			turnLabel.setText("Black's Turn");
+		}
 	}
 	
 	
