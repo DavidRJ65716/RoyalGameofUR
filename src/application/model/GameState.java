@@ -16,7 +16,12 @@ package application.model;
  * Enumerator for maintaining a game state.
  */
 public enum GameState {
-	MAIN, PAUSE, PLAYER_ONE, PLAYER_TWO;
+	MAIN, 
+	PAUSE, 
+	PLAYER_ONE,
+	PLAYER_ONE_WIN,
+	PLAYER_TWO,
+	PLAYER_TWO_WIN;
 	
 	/**
 	 * Converts the given string to a GameState
