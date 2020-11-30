@@ -140,6 +140,10 @@ public class GameBoardController {
 		draw();
 		drawPieces();
 		
+		if(GameEngine.dices.isRolled()) {
+			drawDice(GameEngine.dices.getTotal());
+		}
+		
 		if (Main.gameState == GameState.PLAYER_ONE) {
 			turnLabel.setText("White's Turn");
 		}
@@ -159,23 +163,17 @@ public class GameBoardController {
 		graphics.fillRect(0, 0, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
 		graphics.drawImage(boardImage, BOARD_X, BOARD_Y);
 		
-		/* Placeholder text just to see where everything on the board goes */
 		graphics.setFill(Color.WHITE);
 		graphics.setTextAlign(TextAlignment.CENTER);
 		graphics.setTextBaseline(VPos.CENTER);
-		graphics.fillText("P1 Pile", 50, 100);
-		graphics.fillText("P2 Pile", 50, 500);
-		graphics.fillText("P1 Roll", 350, 100);
-		graphics.fillText("P2 Roll", 350, 500);
-		graphics.fillText("P1 Dice", 450, 100);
-		graphics.fillText("P1 Dice", 550, 100);
-		graphics.fillText("P1 Dice", 650, 100);
-		graphics.fillText("P1 Dice", 750, 100);
-		graphics.fillText("P2 Dice", 450, 500);
-		graphics.fillText("P2 Dice", 550, 500);
-		graphics.fillText("P2 Dice", 650, 500);
-		graphics.fillText("P2 Dice", 750, 500);
-		/* sponge */
+		if (Main.gameState == GameState.PLAYER_ONE) {
+			graphics.fillText("Roll", 350, 100);
+		}
+		
+		if (Main.gameState == GameState.PLAYER_TWO) {
+			graphics.fillText("Roll", 350, 500);
+		}
+		
 	}
 	
 	/**
